@@ -5,10 +5,10 @@
   become_method: sudo
   tasks:
     - name: copy file
-    copy:
-      src: ./inventory
-      dest: /tmp/inventory.bak
-      mode: '0644'
+      copy:
+        src: ./inventory
+        dest: /tmp/inventory.bak
+        mode: '0644'
     - name: add user
       user:
         name: "bob"
