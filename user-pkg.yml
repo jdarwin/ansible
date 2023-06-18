@@ -1,0 +1,20 @@
+---
+- name: copies a file, creates a user, and upgrades all apt packages on the remote machines.
+  hosts: ubuntu1, ubuntu2
+  become: yes
+  become_method: sudo
+  tasks:
+    - name: copy file
+    copy:
+      src: ./inventory
+      dest: /tmp/inventory.bak
+      mode: '0644'
+    - name: add user
+      user:
+        name: "bob"
+        group: "vagrant"
+    - name: upgrade apache2 package
+      apt:
+        name: apache2
+        update_cache: yes
+        state: latest
