@@ -1,0 +1,53 @@
+---
+# represent dta with key-value pairs in YAML
+James:
+  name: James John
+  rollNo: 34
+  div: B
+  sex: male
+# can also represent data as Abbreviation
+James: { name: James John, rollNo: 34, div: B, sex: male }
+# can also represent as List, each item on new line starting with hyphen
+countries:
+  - America
+  - China
+  - Canada
+  - Iceland
+# can also use Abbreviation to represent Lists  
+countries: [ 'America', 'China', 'Canada', 'Iceland' ]
+# List inside dictionaries
+James:
+  name: James John
+  rollNo: 34
+  div: B
+  sex: male
+  likes:
+    - maths
+    - physics
+    - english
+# can make List of dictionaries
+James:
+  name: James John
+  rollNo: 34
+  div: B
+  sex: male
+  likes:
+    - maths
+    - physics
+    - english
+Robert:
+  name: Robert Richardson
+  rollNo: 53
+  div: B
+  sex: male
+  likes:
+    - biology
+    - chemistry
+# can use | to ignore new lines & > to supress new lines for multiple lines, indent is ignored
+messageIncludeNewLines: |
+  Congratulation!! 
+      You passed with 79% 
+messageExcludeNewLines: >
+  Congratulation!! 
+      You passed with 79%       
+...
