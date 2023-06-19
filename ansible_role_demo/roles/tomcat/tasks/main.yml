@@ -34,7 +34,7 @@
 - name: start and enable tomcat
   service:
     daemon_reload: yes
-    name: tomcat
+    name: tomcat.service
     state: started
     enabled: yes
   when: ansible_service_mgr == "systemd"  
