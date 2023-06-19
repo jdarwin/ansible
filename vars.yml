@@ -1,0 +1,21 @@
+---
+- name: using variables in playbook
+  hosts: ubuntu1, ubuntu2
+  become: yes
+  become_method: sudo
+  vars:
+    state: latest
+    name: rex
+  tasks:
+  - name: add user
+    user:
+      name: "{{ user}}"
+  - name: upgrade all packages before installing nginx
+    apt:
+      force_apt_get: yes
+      upgrade: dist
+  - name: install latest nginx
+    apt:
+      name: "nginx"
+      state: "{{ state}}"
+  
