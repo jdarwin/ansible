@@ -5,7 +5,7 @@
   become_method: sudo
   vars:
     state: latest
-    name: rex
+    user: rex
   tasks:
   - name: add user
     user:
