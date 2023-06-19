@@ -3,6 +3,7 @@
   gather_facts: yes
   become: yes
   become_method: sudo
+  remote_user: vagrant
   vars:
     nginx_version: 1.18.0-0ubuntu1.4
     nginx_custom_directory: /home/ubuntu/nginx
@@ -39,4 +40,4 @@
     - name: Restart the Nginx service
       service:
         name: nginx
-        state: restart
+        state: restarted
