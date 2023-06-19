@@ -1,0 +1,10 @@
+My favorite color is {{ favorite_color }}
+{% if age > 18 %}
+You are an adult, and you can vote in the voting center: {{ voting_center }}
+{% else %}
+Sorry, you are a minor and you can't vote yet.
+{% endif %}
+A list of fruits:
+{% for fruit in fruits %}
+ - {{ fruit }}
+{% endfor }

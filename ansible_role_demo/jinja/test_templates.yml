@@ -1,0 +1,17 @@
+---
+- name: test jinja template
+  hosts: ubuntu2
+  vars:
+    favorite_color: blue
+    age: 21
+    voting_center: ab459d
+    fruits:
+      - banana
+      - apple
+      - mango
+      - pear
+  tasks:
+  - name: Jinja template test
+    template:
+      src: test.conf.j2
+      dest: /tmp/test.conf
