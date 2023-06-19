@@ -13,30 +13,30 @@
         update_cache: yes
         upgrade: yes
         cache_valid_time: 3600
-  - name: "Install nginx to version {{ nginx_version }}"
-    apt:
-      name: "nginx={{ nginx_version }}"
-      state: present
-  - name: Copy the nginx configuration file to the host
-    template:
-      src: templates/nginx.conf.j2
-      dest: /etc/nginx/sites-available/default
-  - name: Create link to the new config to enable it
-    file:
-      dest: /etc/nginx/sites-enabled/default
-      src: /etc/nginx/sites-available/default
-      state: link
+    - name: "Install nginx to version {{ nginx_version }}"
+      apt:
+        name: "nginx={{ nginx_version }}"
+        state: present
+    - name: Copy the nginx configuration file to the host
+      template:
+        src: templates/nginx.conf.j2
+        dest: /etc/nginx/sites-available/default
+    - name: Create link to the new config to enable it
+      file:
+        dest: /etc/nginx/sites-enabled/default
+        src: /etc/nginx/sites-available/default
+        state: link
 
-  - name: Create Nginx directory
-    ansible.builtin.file:
-      path: "{{ nginx_custom_directory }}"
-      state: directory
+    - name: Create Nginx directory
+      ansible.builtin.file:
+        path: "{{ nginx_custom_directory }}"
+        state: directory
 
-  - name: Copy index.html to the Nginx directory
-    copy:
-      src: files/index.html
-      dest: "{{ nginx_custom_directory }}/index.html"
-  - name: Restart the Nginx service
-    service:
-      name: nginx
-      state: restarted
+    - name: Copy index.html to the Nginx directory
+      copy:
+        src: files/index.html
+        dest: "{{ nginx_custom_directory }}/index.html"
+    - name: Restart the Nginx service
+      service:
+        name: nginx
+        state: restarted
