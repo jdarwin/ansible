@@ -13,5 +13,5 @@
   tasks:
   - name: Jinja template test
     template:
-      src: test.conf.j2
+      src: templates/test.conf.j2
       dest: /tmp/test.conf
