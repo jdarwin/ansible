@@ -39,8 +39,5 @@
         dest: "{{ nginx_custom_directory }}/index.html"
     - name: Restart the Nginx service
       service:
-        remote_user: ubuntu
-        become: yes
-        become_method: sudo
         name: nginx
         state: restarted
