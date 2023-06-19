@@ -1,5 +1,5 @@
 - name: Tomcat deployment playbook
-  hosts: ubuntu2
+  hosts: managed2
   remote_user: ubuntu
   roles:
     - tomcat
